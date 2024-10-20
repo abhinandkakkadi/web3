@@ -1,0 +1,5 @@
+So let's assume a bunch of users.
+User 1 and 2 need to make crypto transactions. Let's say bitcoin
+So the bitcoin node will aggregates these transactions a put it into a block.
+The the node will compute the nonce and combine a bunch of things to get a unique hash 
+with a bunch of 0's.

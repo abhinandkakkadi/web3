@@ -1,0 +1,10 @@
+Hashing - 
+Converting a string to a fixed size of string with random characters.
+
+Properties:
+Deterministic - Given the same input text and hash function, the output should always be the same
+Fast Computation - Self Explanatory
+Pre-Image Resistance - Should not allow us to convert it back to it's original form.
+Small changes in input should produce drastically change the hash output.
+Collision Resistance - two different input should not have the same output.
+

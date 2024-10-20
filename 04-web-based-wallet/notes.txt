@@ -1,0 +1,70 @@
+- Ethereum address is 20 bytes in size and is hex encoded.
+The algorithm used for encryption is keccak-256 
+
+Properties of keccak-256
+- It's collision resistance, which means two input will not have the same hash output.
+- Pre-image resistance - Given the output, it is impossible to find the input 
+- kekccak-256 output 256 bit hash value.
+
+In Solana:
+An encryption algo called ECDSA is used, It generates a private and public key of length 
+32 bytes which is then base58 encoded to form the public address that we share to the world.
+
+Different blockchain can have different encryption method for creating private public key pair, 
+
+Steps in generating ETH Public key:
+- Initially the public key is generated using elliptic curve cryptography 
+- The public key is then hashed using keccak-256, we get 32 byte hash. The ethereum 
+  address is derived from this hash by taking the last 20 bytes from this hash output. 
+- The remaining 20 bytes is converted to hexadecimal format and prefixed with '0x' to form 
+  the ethereum address. This is the address that users use to send and receive ETH and interact with 
+  smart contract. 
+
+Hierarchical deterministic wallet (HD WALLETS)
+THis came as part of BIP-32 (bitcoin improve proposal)
+Problem:
+We have to generate multiple public/private key if we want to maintain multiple wallets.
+So let's say If the extension got deleted, or our laptop got fried, we might have to store 
+these multiple private key so that we can get backup of each wallet .
+
+So BIP-32 came withe a hierarchial model.
+
+The user from high level get a mnemonics which can deterministically generate a seed (deterministically means it creates the same wallet every time)
+
+With the help of a single seed we can create multiple public/private key pairs. which means multiple 
+wallets can be created from a single seed. So the backup also becomes easier as we only have to make sure that
+the one exiting seed is in the correct direction.
+
+From this single seed multiple wallet will be created based on the DERIVATION PATH. which have details like which wallet to use (eg:ETH) and the unique key associated 
+with that wallet.
+
+(eg: m/44'/60'/0' (ETH, wallet 1)  m/44'/60'/1' (ETH, wallet 2) m/44'/60'/1')
+Here the number 60 represents ETH wallet. (If it is 0 - It's Bitcoin)
+m - represent master node 
+purpose - A constant that defines the purpose (44` for BIP44 is a standard for HD Wallets)
+Blockchain - the 3rd one represents the blockchain which is being represented 
+Last part - The last part represents the wallet number 
+
+Is BIP-32 had a solution for this.
+
+
+JSON-RPC:
+So we can send the name of the method and it's argument as POST request and 
+server might have implemented that function which get's called and respond with JSON. 
+Creating JSON RPC servers are easy. It's not blockchain restricted. Anyone can easily create JSON RPC servers.
+
+RPC node is the servers which talks to the server in case when client request for some data.
+eg: Let's say the client want to check their balance in a particular blockchain. In this case the RPC node will communicate with the 
+miners and other nodes to get these details. 
+It's easy to scale RPC node as it's lightweight unlike miners. 
+
+How to get RPC node:
+Quicknode
+Alchemy 
+Helius 
+Infura 
+
+
+
+
+

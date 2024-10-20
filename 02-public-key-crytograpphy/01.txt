@@ -1,0 +1,47 @@
+To create a wallet/account in blockchain, we need a private public key pair. 
+
+private public key are pairs used in assymetric cryptography. These two keys have the 
+following charateristics.
+
+Public key : public key is a string that can be shared openly.
+
+With the public key other can send us fund as well as see our balance.
+
+private key - confidential use to send crypto
+
+Bit and bytes:
+Bit is the smallest unit of data in a computer which can have value 0 or 1.
+Bytes is a group of 8 bit. It is the standard unit of data used to represent a single character.
+
+Private key is a 32 bytes array. so it will have a length of 32 and each of these position can
+have value from 0-255.
+
+This bytes for user firendliness is converted into string of 32 length.
+
+ascii - all english alphabets and a bunch other characters are represented using bytes 0 -255
+eg: A - 65 - binary corresponding to this byte number will be what is stored in memory.  
+
+
+Most private, public keys are encoded to either base64 or base58. It's not encoded into 
+ascii because when encoding keys where each position have 0-255 to ascii it can potentially
+have a lot of special characters. Which we don't need. But when converted to base64 / base58 
+it will not be having those special characters and the wallet is not wiered.
+
+We get hex representation by grouping 4 bits together of a really big bits.
+0001 1101 0011
+
+We get base64 representation bu grouping 6 bites together, as 2^6 = 64
+
+So when we convert a string (english) -> base64
+We are essentially converting ascii to bytes and bytes to base64.
+
+ACCEPTING AND SENDING CRYPTO 
+When we need to receive crypto, we can just share our public key to the other person. 
+We we need to send crypto we need to sign the message (sending details) using the private key,
+And broadcast the signed message as well as the public key. THe blockchain verifies the signature using 
+the public key to verify that the message was indeed signed by us.
+
+A block can have multiple transactions and each transactions have a signature associated with it, which 
+confirms that the metadata associated with that transaction is valid. As all the miners can verify the 
+signature using using the public key.
+
