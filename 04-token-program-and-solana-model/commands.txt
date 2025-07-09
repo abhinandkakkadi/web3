@@ -1,20 +1,12 @@
-# Set the network (devnet, testnet, or mainnet-beta)
+solana config get - get configuration
 solana config set --url https://api.devnet.solana.com
-
-# View current config settings
-solana config get
-
-# Generate a new keypair (wallet)
-solana-keygen new
-
-# Recover a wallet from a seed phrase
-solana-keygen recover
-
-# Show wallet public key
-solana address
-
-# Show wallet balance
-solana balance
-
-# Airdrop SOL to your wallet (only on devnet/testnet)
-solana airdrop 2
+solana-keygen new - generate new key pair
+solana address - generate solana public address
+solana balance - get sol balance on current address
+solana airdrop 1 - airdrop sol to default wallet
+spl-token create-token - create token mint
+spl-token create-account <TOKEN_MINT_ADDRESS> - Create associated token account	
+spl-token mint <TOKEN_MINT_ADDRESS> <AMOUNT> - Mint tokens	
+spl-token transfer <TOKEN_MINT_ADDRESS> <AMOUNT> <RECIPIENT> - Transfer tokens	
+spl-token balance <TOKEN_MINT_ADDRESS> - Check token balance	
+spl-token supply <TOKEN_MINT_ADDRESS> - View token supply	
