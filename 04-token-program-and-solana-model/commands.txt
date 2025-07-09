@@ -1,0 +1,20 @@
+# Set the network (devnet, testnet, or mainnet-beta)
+solana config set --url https://api.devnet.solana.com
+
+# View current config settings
+solana config get
+
+# Generate a new keypair (wallet)
+solana-keygen new
+
+# Recover a wallet from a seed phrase
+solana-keygen recover
+
+# Show wallet public key
+solana address
+
+# Show wallet balance
+solana balance
+
+# Airdrop SOL to your wallet (only on devnet/testnet)
+solana airdrop 2

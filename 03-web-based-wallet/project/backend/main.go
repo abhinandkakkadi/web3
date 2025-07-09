@@ -3,7 +3,6 @@ package main
 import (
 	"crypto/sha256"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"slices"
 
@@ -126,9 +125,6 @@ func generateAddress(w http.ResponseWriter, r *http.Request) {
 		PublicAddress: address,
 	})
 
-	fmt.Println(walletMap)
-
-	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(walletMap)
 }
 
