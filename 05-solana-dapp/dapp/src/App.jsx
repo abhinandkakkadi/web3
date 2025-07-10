@@ -12,8 +12,6 @@ import { Airdrop } from './Airdrop';
 import '@solana/wallet-adapter-react-ui/styles.css';
 
 function App() {
-
-
   return (
     <ConnectionProvider endpoint={"https://api.devnet.solana.com"} aut>
             <WalletProvider wallets={[]}> {/* In the right now empty list we can add wallets that cannot be automatically detected */ }
